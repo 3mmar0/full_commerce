@@ -13,9 +13,10 @@ class CategoryController extends Controller
 {
     use UploadImageTrait;
 
-    public function index()
+    public function index(Request $request)
     {
-        $cats = Category::all();
+
+        $cats = Category::filter($request->query())->paginate();
         return view('admin.categories.index', compact('cats'));
     }
     public function show()
@@ -28,6 +29,7 @@ class CategoryController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate(Category::rules());
         $slug = Str::slug($request->post('name'));
         $img = $this->uploadImg($request, 'cats', 'img');
         Category::create([
@@ -53,6 +55,7 @@ class CategoryController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $request->validate(Category::rules($id));
         $cat = Category::findorfail($id);
         $slug = Str::slug($request->post('name'));
         $old_path = $cat->img;
@@ -78,7 +81,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $cat = Category::findorfail($id);
-        $cat->delete();
+        $cat->forceDelete();
 
         if ($cat->img) {
             Storage::disk('public')->delete($cat->img);
@@ -86,7 +89,7 @@ class CategoryController extends Controller
 
         return redirect()->route('dashboard.categories.index')->with(
             'success',
-            'Category deleted'
+            'Category moved to trash'
         );
     }
 }

@@ -5,7 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class Product extends Model
 {
     use HasFactory;
 
@@ -13,8 +13,11 @@ class Store extends Model
         'name',
         'slug',
         'disc',
-        'logo',
-        'cover',
-        'status',
+        'image',
+        'price',
+        'compare_price',
+        'category_id',
+        'store_id',
+        'featured',
     ];
 }

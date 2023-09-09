@@ -1,11 +1,11 @@
 @extends('admin.layouts.sidebar')
 
-@section('ttl', 'Categories')
+@section('ttl', 'Products')
 
-@section('page_name', 'Categories')
+@section('page_name', 'Products')
 @section('bread')
     @parent
-    <li class="breadcrumb-item active">Categories</li>
+    <li class="breadcrumb-item active">Products</li>
 @endsection
 
 @section('content')
@@ -31,48 +31,46 @@
                 <th>#ID</th>
                 <th>Img</th>
                 <th>Name</th>
-                <th>Parent_id</th>
                 <th>Status</th>
                 <th>Created_at</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @forelse ($cats as $cat)
+            @forelse ($products as $product)
                 <tr>
-                    <td>{{ $cat->id ?? '' }}</td>
+                    <td>{{ $product->id ?? '' }}</td>
                     <td>
-                        <img width="50" height="50" style="object-fit:contain"
-                            src="{{ asset('storage/' . $cat->img) }}" alt="">
+                        <img width="50" height="50" style="object-fit:contain" src="{{ $product->image }}"
+                            alt="">
                     </td>
-                    <td>{{ $cat->name ?? '' }}</td>
-                    <td>{{ $cat->parent_id ?? 'main' }}</td>
-                    <td>{{ $cat->status ?? '' }}</td>
-                    <td>{{ $cat->created_at ?? '' }}</td>
+                    <td>{{ $product->name ?? '' }}</td>
+                    <td>{{ $product->status ?? '' }}</td>
+                    <td>{{ $product->created_at ?? '' }}</td>
                     <td>
-                        <div class="flex gap-2">
-                            <a href="{{ route('dashboard.categories.edit', $cat->id) }}"
+                        {{-- <div class="flex gap-2">
+                            <a href="{{ route('dashboard.products.edit', $product->id) }}"
                                 class="mr-2 btn btn-sm btn-outline-success">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <form action="{{ route('dashboard.categories.destroy', $cat->id) }}" method="post">
+                            <form action="{{ route('dashboard.products.destroy', $product->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-sm btn-outline-danger">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>
-                        </div>
+                        </div> --}}
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td class="text-center text-md font-semibold bg-gray" colspan="7">No Categories yet.</td>
+                    <td class="text-center text-md font-semibold bg-gray" colspan="6">No Products yet.</td>
                 </tr>
             @endforelse
         </tbody>
     </table>
 
-    {{ $cats->withQueryString()->links() }}
+    {{ $products->withQueryString()->links() }}
 
 @endsection
