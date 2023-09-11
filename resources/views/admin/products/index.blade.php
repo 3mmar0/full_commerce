@@ -31,6 +31,8 @@
                 <th>#ID</th>
                 <th>Img</th>
                 <th>Name</th>
+                <th>Category</th>
+                <th>Store</th>
                 <th>Status</th>
                 <th>Created_at</th>
                 <th>Actions</th>
@@ -45,6 +47,8 @@
                             alt="">
                     </td>
                     <td>{{ $product->name ?? '' }}</td>
+                    <td>{{ $product->category->name ?? '' }}</td>
+                    <td>{{ $product->store->name ?? '' }}</td>
                     <td>{{ $product->status ?? '' }}</td>
                     <td>{{ $product->created_at ?? '' }}</td>
                     <td>
@@ -65,7 +69,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td class="text-center text-md font-semibold bg-gray" colspan="6">No Products yet.</td>
+                    <td class="text-center text-md font-semibold bg-gray" colspan="8">No Products yet.</td>
                 </tr>
             @endforelse
         </tbody>

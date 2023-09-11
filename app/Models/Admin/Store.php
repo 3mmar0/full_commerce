@@ -17,4 +17,11 @@ class Store extends Model
         'cover',
         'status',
     ];
+
+    // relations
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+    // End relations
 }

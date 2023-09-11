@@ -32,6 +32,7 @@
                 <th>Img</th>
                 <th>Name</th>
                 <th>Parent_id</th>
+                <th>#Products</th>
                 <th>Status</th>
                 <th>Created_at</th>
                 <th>Actions</th>
@@ -46,7 +47,8 @@
                             src="{{ asset('storage/' . $cat->img) }}" alt="">
                     </td>
                     <td>{{ $cat->name ?? '' }}</td>
-                    <td>{{ $cat->parent_id ?? 'main' }}</td>
+                    <td>{{ $cat->parent->name }}</td>
+                    <td>{{ $cat->products_count }}</td>
                     <td>{{ $cat->status ?? '' }}</td>
                     <td>{{ $cat->created_at ?? '' }}</td>
                     <td>
@@ -67,7 +69,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td class="text-center text-md font-semibold bg-gray" colspan="7">No Categories yet.</td>
+                    <td class="text-center text-md font-semibold bg-gray" colspan="8">No Categories yet.</td>
                 </tr>
             @endforelse
         </tbody>

@@ -20,6 +20,24 @@ class Category extends Model
         'status',
     ];
 
+    // relations
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id', 'id')
+            ->withDefault(['name' => '__']);
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
+    // End relations
+
     public function scopeActive(Builder $builder)
     {
         return $builder->where('status', '=', 'active');

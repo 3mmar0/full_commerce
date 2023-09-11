@@ -16,11 +16,12 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
 
-        $cats = Category::filter($request->query())->paginate();
+        $cats = Category::with('parent')->withCount('products')->filter($request->query())->paginate();
         return view('admin.categories.index', compact('cats'));
     }
-    public function show()
+    public function show($id)
     {
+        $cat = Category::findorfail($id);
     }
     public function create()
     {
