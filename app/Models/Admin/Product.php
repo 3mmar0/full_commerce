@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -42,6 +43,17 @@ class Product extends Model
     public function store()
     {
         return $this->belongsTo(Store::class);
+    }
+    public function tags()
+    {
+        return $this->belongsToMany(
+            Tag::class,
+            'product_tag',
+            'product_id',
+            'tag_id',
+            'id',
+            'id',
+        );
     }
     // End relations
 }

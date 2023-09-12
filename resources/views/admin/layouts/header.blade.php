@@ -10,7 +10,7 @@
         </li>
         @auth
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="/profile" class="nav-link">Profile</a>
+                <a href="/dashboard/profile" class="nav-link">Profile</a>
             </li>
         @endauth
         @guest
