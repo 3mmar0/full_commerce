@@ -52,7 +52,7 @@
                     <td>{{ $product->status ?? '' }}</td>
                     <td>{{ $product->created_at ?? '' }}</td>
                     <td>
-                        {{-- <div class="flex gap-2">
+                        <div class="flex gap-2">
                             <a href="{{ route('dashboard.products.edit', $product->id) }}"
                                 class="mr-2 btn btn-sm btn-outline-success">
                                 <i class="fas fa-edit"></i>
@@ -64,7 +64,7 @@
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>
-                        </div> --}}
+                        </div>
                     </td>
                 </tr>
             @empty
