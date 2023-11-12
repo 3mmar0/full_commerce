@@ -50,7 +50,7 @@
                 <!-- End Cart List Title -->
                 @foreach ($cart->get() as $item)
                     <!-- Cart Single List list -->
-                    <div class="cart-single-list">
+                    <div class="cart-single-list" id="{{ $item->id }}">
                         <div class="row align-items-center">
                             <div class="col-lg-1 col-md-1 col-12">
                                 <a href="{{ route('product', $item->product->slug) }}"><img
@@ -66,7 +66,8 @@
                             </div>
                             <div class="col-lg-2 col-md-2 col-12">
                                 <div class="count-input">
-                                    <input type="number" class="form-control" value="{{ $item->quantity }}" />
+                                    <input name="quantity" type="number" class="form-control item-quantity"
+                                        data-id="{{ $item->id }}" value="{{ $item->quantity }}" />
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-12">
@@ -76,7 +77,8 @@
                                 <p>{{ Currency::format(0) }}</p>
                             </div>
                             <div class="col-lg-1 col-md-2 col-12">
-                                <a class="remove-item" href="javascript:void(0)"><i class="lni lni-close"></i></a>
+                                <a class="remove-item item-del" data-id="{{ $item->id }}"
+                                    href="javascript:void(0)"><i class="lni lni-close"></i></a>
                             </div>
                         </div>
                     </div>
@@ -122,4 +124,14 @@
         </div>
     </div>
     <!--/ End Shopping Cart -->
+    @push('scripts')
+        <script>
+            const csrf_token = "{{ csrf_token() }}"
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        {{-- <script src="{{ asset('js/cart.js') }}"></script> --}}
+        @vite('resources/js/cart.js')
+    @endpush
 </x-front-layout>
