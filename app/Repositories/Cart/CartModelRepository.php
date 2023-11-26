@@ -39,7 +39,7 @@ class CartModelRepository implements CartRepository
                 'product_id' => $product->id,
                 'quantity' => $quantity,
             ]);
-            $this->items->push($cart);
+            $this->get()->push($cart);
             return $cart;
         }
 
