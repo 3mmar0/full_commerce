@@ -17,7 +17,6 @@ class OrderItem extends Pivot
     public function product()
     {
         return $this->belongsTo(Product::class)
-            ->using(OrderItem::class)
             ->withDefault([
                 'name' => $this->product_name
             ]);

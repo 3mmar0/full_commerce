@@ -41,12 +41,23 @@ class Order extends Model
             'order_id',
             'product_id',
         )
+            ->using(OrderItem::class)
             ->withPivot([
                 'product_name',
                 'product_price',
                 'quantity',
                 'options'
             ]);
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(
+            OrderAddress::class,
+            'order_items',
+            'order_id',
+            'product_id',
+        );
     }
 
     protected static function boot()
