@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'name' => '3mmar',
             'email' => 'weeds0250@gmail.com',
             'password' => Hash::make('password'),
-            'phone' => '01030122338',
+            'phone' => '0103012233',
         ]);
     }
 }
