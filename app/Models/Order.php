@@ -60,6 +60,24 @@ class Order extends Model
         );
     }
 
+    public function billingAddresses()
+    {
+        return $this->hasOne(
+            OrderAddress::class,
+            'order_id',
+            'id',
+        )->where('type', 'billing');
+    }
+
+    public function shippingAddresses()
+    {
+        return $this->hasOne(
+            OrderAddress::class,
+            'order_id',
+            'id',
+        )->where('type', 'shipping');
+    }
+
     protected static function boot()
     {
         static::creating(function (Order $order) {
