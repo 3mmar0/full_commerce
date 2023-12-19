@@ -1,7 +1,9 @@
 @props(['name', 'options' => [], 'selected' => '', 'label' => '', 'head_option' => ''])
 
 <div class="form-group ">
-    <label for="{{ $name }}">{{ $label }}</label>
+    @if ($label)
+        <label for="{{ $name }}">{{ $label }}</label>
+    @endif
     <select name="{{ $name }}" id="{{ $name }}" class="form-control form select">
         @if ($head_option)
             <option value="">{{ $head_option }}</option>

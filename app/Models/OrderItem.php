@@ -12,7 +12,8 @@ class OrderItem extends Pivot
     use HasFactory;
 
     protected $table = 'order_items';
-    protected $incrementing = true;
+    public $incrementing = true;
+    public $timestamps = false;
 
     public function product()
     {

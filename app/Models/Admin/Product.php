@@ -23,6 +23,7 @@ class Product extends Model
         'category_id',
         'store_id',
         'featured',
+        'quantity',
     ];
 
     protected static function booted()

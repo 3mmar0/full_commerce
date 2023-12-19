@@ -12,13 +12,13 @@ class Order extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'number',
         'payment_method',
         'store_id',
         'user_id',
         'status',
         'payment_status',
     ];
+
 
     public function store()
     {
@@ -54,9 +54,6 @@ class Order extends Model
     {
         return $this->hasMany(
             OrderAddress::class,
-            'order_items',
-            'order_id',
-            'product_id',
         );
     }
 
@@ -78,7 +75,7 @@ class Order extends Model
         )->where('type', 'shipping');
     }
 
-    protected static function boot()
+    protected static function booted()
     {
         static::creating(function (Order $order) {
             $order->number = Order::getNextOrderNum();
@@ -88,8 +85,10 @@ class Order extends Model
     public static function getNextOrderNum()
     {
         $year = Carbon::now()->year;
-        $number =  Order::whereYear('created_at', Carbon::now()->year)->max('number');
-        if ($number == null) {
+        // dd($year);
+        $number =  Order::whereYear('created_at', $year)->max('number');
+        // dd($number);
+        if ($number) {
             return $number + 1;
         }
 
