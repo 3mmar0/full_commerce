@@ -48,6 +48,19 @@ class OrderCreatedNotification extends Notification
     }
 
     /**
+     * Get the Database representation of the notification.
+     */
+    public function toDatabase(object $notifiable)
+    {
+        $addr = $this->order->billingAddresses;
+        return [
+            'body' => "A new order (#{$this->order->numbe}) created by {$addr->name} from {{$addr->country_name}}.",
+            'icon' => 'fas fa file',
+            'url' => url('/'),
+            'order_id' => $this->order->id,
+        ];
+    }
+    /**
      * Get the array representation of the notification.
      *
      * @return array<string, mixed>

@@ -33,11 +33,16 @@ class DecutProductQuantity
         //     //         'quantity' => DB::raw("quantity - {$item->quantity}")
         //     //     ]);
         // }
-        foreach (Cart::get() as $item) {
-            Product::where('id', $item->product_id)
-                ->update([
-                    'quantity' => DB::raw("quantity - {$item->quantity}")
-                ]);
+        try {
+            //code...
+            foreach (Cart::get() as $item) {
+                Product::where('id', $item->product_id)
+                    ->update([
+                        'quantity' => DB::raw("quantity - {$item->quantity}")
+                    ]);
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
         }
     }
 }
