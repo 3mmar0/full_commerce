@@ -28,13 +28,13 @@ class Product extends Model
 
     protected static function booted()
     {
-        static::addGlobalScope('store', function (Builder $builder) {
-            $user = Auth::user();
-            if ($user && $user->store_id && $user->role != 'admin') {
-                # code...
-                $builder->where('store_id', $user->store_id);
-            }
-        });
+        // static::addGlobalScope('store', function (Builder $builder) {
+        //     $user = Auth::user();
+        //     if ($user && $user->store_id && $user->role != 'admin') {
+        //         # code...
+        //         $builder->where('store_id', $user->store_id);
+        //     }
+        // });
     }
 
     public function scopeActive(Builder $builder)
