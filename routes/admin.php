@@ -5,13 +5,10 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-
-
-
 Route::group([
-    'middleware' => ['auth:admin'],
+    'middleware' => ['auth'],
     'as' => 'dashboard.',
-    'prefix' => 'admin/dashboard'
+    'prefix' => 'dashboard'
 ], function () {
     Route::get('/', function () {
         return view('admin.index');
