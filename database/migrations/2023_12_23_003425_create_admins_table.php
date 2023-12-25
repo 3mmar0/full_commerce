@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('phone_number')->unique();
-            $table->boolean('super_admin')->default(false);
+            $table->boolean('super-admin')->default(false);
             $table->enum('status', ['active', 'disactive'])->default('active');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

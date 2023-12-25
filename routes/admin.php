@@ -6,9 +6,9 @@ use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
-    'middleware' => ['auth'],
+    'middleware' => ['auth:admin'],
     'as' => 'dashboard.',
-    'prefix' => 'dashboard'
+    'prefix' => 'admin/dashboard'
 ], function () {
     Route::get('/', function () {
         return view('admin.index');
