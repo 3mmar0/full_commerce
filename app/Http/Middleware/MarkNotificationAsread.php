@@ -2,13 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
-use Carbon\Carbon;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class UpdateUserActive
+class MarkNotificationAsread
 {
     /**
      * Handle an incoming request.
@@ -17,11 +15,16 @@ class UpdateUserActive
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = $request->user();
-        if ($user instanceof User) {
-            $user->forceFill([
-                'last_active_at' => Carbon::now()
-            ])->save();
+        $notification_id = $request->query('notification_id');
+        if ($notification_id) {
+            $user = $request->user();
+            if ($user) {
+                $notify = $user->unreadNotifications()->find($notification_id);
+                // dd($notify);
+                if ($notify) {
+                    $notify->markAsRead();
+                }
+            }
         }
         return $next($request);
     }

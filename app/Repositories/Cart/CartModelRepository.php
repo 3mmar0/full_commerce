@@ -75,8 +75,8 @@ class CartModelRepository implements CartRepository
         // )->selectRaw(
         //     'SUM(products.price * carts.quantity) as total'
         // )->value('total');
-
         return $this->get()->sum(function ($item) {
+            // dd($item);
             return $item->quantity * $item->product->price;
         });
     }
