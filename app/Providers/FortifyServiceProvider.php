@@ -27,7 +27,7 @@ class FortifyServiceProvider extends ServiceProvider
             Config::set('fortify.guard', 'admin');
             Config::set('fortify.passwords', 'admins');
             Config::set('fortify.prefix', 'admin');
-            Config::set('fortify.home', '/dashboard');
+            Config::set('fortify.home', 'admin/dashboard');
         }
     }
 
@@ -52,17 +52,10 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        Fortify::viewPrefix('auth.');
-
-        Fortify::loginView(function () {
-            if (Config::get('fortify.guard') == 'web') {
-                return view('front.auth.login');
-            }
-            return view('auth.login');
-        });
-        // Fortify::registerView('auth.register');
-        // Fortify::resetPasswordView('auth.reset-password');
-        // Fortify::confirmPasswordView('auth.confirm-password');
-        // Fortify::verifyEmailView('auth.verify-email');
+        if (Config::get('fortify.guard') == 'admin') {
+            Fortify::viewPrefix('auth.');
+        } else {
+            Fortify::viewPrefix('front.auth.');
+        }
     }
 }

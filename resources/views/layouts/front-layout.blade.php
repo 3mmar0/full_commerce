@@ -88,18 +88,31 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-12">
                         <div class="top-end">
-                            <div class="user">
-                                <i class="lni lni-user"></i>
-                                Hello
-                            </div>
-                            <ul class="user-login">
-                                <li>
-                                    <a href="login.html">Sign In</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                            </ul>
+                            @if (Auth::guard('web')->user())
+                                <div class="user-login">
+                                    <div class="user">
+                                        <i class="lni lni-user"></i>
+                                        {{ Auth::guard('web')->user()->name }}
+                                    </div>
+                                    <li>
+
+                                        <form class="" method="post" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button class="btn btn-outline-light ">Logout</button>
+                                        </form>
+                                    </li>
+                                </div>
+                            @endif
+                            @if (!Auth::guard('web')->user())
+                                <ul class="user-login">
+                                    <li>
+                                        <a href="{{ route('login') }}">Sign In</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('register') }}">Register</a>
+                                    </li>
+                                </ul>
+                            @endif
                         </div>
                     </div>
                 </div>
