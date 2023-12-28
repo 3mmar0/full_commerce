@@ -17,8 +17,30 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $products = Product::with(['category', 'store'])->paginate(10);
+        $products = Product::with(['category'])->filter($request->query())->latest()->paginate(10);
         return view('admin.products.index', compact('products'));
+    }
+
+    public function create()
+    {
+        $cats = Category::all();
+        return view('admin.products.create', compact('cats'));
+    }
+
+    public function store(Request $request)
+    {
+        // $request->validate(Product::rules());
+        $img = $this->uploadImg($request, 'cats', 'img');
+        $request->merge([
+            'image' => $img,
+            'store_id' => 77,
+        ]);
+        Product::create($request->all());
+
+        return redirect()->route('dashboard.products.index')->with(
+            'success',
+            'Product created'
+        );
     }
 
     public function edit($id)
@@ -67,6 +89,21 @@ class ProductController extends Controller
         return redirect()->route('dashboard.products.index')->with(
             'success',
             'Product updated'
+        );
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::findorfail($id);
+        $product->forceDelete();
+
+        if ($product->image) {
+            Storage::disk('public')->delete($product->image);
+        }
+
+        return redirect()->route('dashboard.products.index')->with(
+            'success',
+            'Product deleted'
         );
     }
 }

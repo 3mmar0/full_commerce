@@ -12,7 +12,7 @@
 
     <x-alert type="success" />
 
-    <a class="my-4 mx-3 right block btn btn-success" href="{{ route('dashboard.categories.create') }}">
+    <a class="my-4 mx-3 right block btn btn-success" href="{{ route('dashboard.products.create') }}">
         create
     </a>
 
@@ -43,7 +43,7 @@
                 <tr>
                     <td>{{ $product->id ?? '' }}</td>
                     <td>
-                        <img width="50" height="50" style="object-fit:contain" src="{{ $product->image }}"
+                        <img width="50" height="50" style="object-fit:contain" src="{{ $product->image_url }}"
                             alt="">
                     </td>
                     <td>{{ $product->name ?? '' }}</td>

@@ -38,7 +38,7 @@ class CartController extends Controller
             'quantity' => ['nullable', 'integer', ' min:1']
         ]);
         $product = Product::withoutGlobalScope('store')->findOrFail($request->post('product_id'));
-        dd($product);
+        // dd($product);
         $cart->add($product, $request->post('quantity'));
 
         return redirect()->route('cart.index')->with('success', 'Product added to Cart');

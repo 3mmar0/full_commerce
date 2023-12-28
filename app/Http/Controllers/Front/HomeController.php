@@ -13,4 +13,9 @@ class HomeController extends Controller
         $products = Product::withoutGlobalScope('store')->with('category')->active()->limit(8)->get();
         return view('front.home', compact('products'));
     }
+    public function products()
+    {
+        $products = Product::withoutGlobalScope('store')->with('category')->active()->paginate();
+        return view('front.products.index', compact('products'));
+    }
 }

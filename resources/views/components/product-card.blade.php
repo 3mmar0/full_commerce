@@ -1,8 +1,8 @@
-<div class="col-lg-3 col-md-6 col-12">
+<div class="col-lg-4 col-md-6 col-12">
     <!-- Start Single Product -->
     <div class="single-product">
         <div class="product-image">
-            <img src="{{ $product->image_url }}" alt="#{{ $product->name }} img">
+            <img src="{{ $product->image_url }}" alt="#{{ $product->name }} img" style="aspect-ratio: 1/1" />
             @if ($product->compare_price)
                 <span class="sale-tag">{{ $product->sale_price }}%</span>
             @endif
@@ -11,8 +11,11 @@
                 <input type="hidden" name="product_id" value="{{ $product->id }}" id="">
                 <input type="hidden" name="quantity" value="1" id="">
 
-                <button type="submit" class="btn button"><i class="lni lni-cart"></i> Add to
-                    Cart</button>
+                <div class="button">
+
+                    <button type="submit" class="btn button bg-primary-subtle "><i class="lni lni-cart"></i> Add to
+                        Cart</button>
+                </div>
             </form>
         </div>
         <div class="product-info">

@@ -35,6 +35,10 @@ class Product extends Model
         //         $builder->where('store_id', $user->store_id);
         //     }
         // });
+
+        static::creating(function (Product $product) {
+            $product->slug = Str::slug($product->name);
+        });
     }
 
     public function scopeActive(Builder $builder)
@@ -44,12 +48,31 @@ class Product extends Model
 
     public function scopeFilter(Builder $builder, $filters)
     {
+        $options = array_merge([
+            'category_id' => null,
+            'tag_id' => null,
+            'status' => 'active',
+        ], $filters);
         if ($filters['name'] ?? false) {
             $builder->where('name', 'LIKE', "%{$filters['name']}%");
         }
-        if ($filters['status'] ?? false) {
-            $builder->where('status', '=', $filters['status']);
-        }
+        $builder->when($options['status'], function ($builder, $value) {
+            $builder->whereStatus($value);
+        });
+        $builder->when($options['category_id'], function ($builder, $value) {
+            $builder->whereCategoryId($value);
+        });
+        $builder->when($options['tag_id'], function ($builder, $value) {
+            // $builder->whereHas('tags', function($builder) use ($value){
+            //     $builder->whereIn('id', $value);
+            // });
+            $builder->whereExists(function ($query) use ($value) {
+                $query->select(1)
+                    ->from('product_tags')
+                    ->whereRaw('product_id = products.id')
+                    ->whereIn('tag_id', $value);
+            });
+        });
     }
 
     // relations

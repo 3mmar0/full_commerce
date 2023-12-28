@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/link', function () {
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+    echo 'ok';
+});
+
 Route::get("/", [HomeController::class, 'index'])->name('home');
 Route::get("/products", [ProductsController::class, 'index'])->name('products');
 Route::get("/products/{product:slug}", [ProductsController::class, 'show'])->name('product');

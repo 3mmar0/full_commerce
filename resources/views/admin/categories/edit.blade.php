@@ -28,7 +28,7 @@
             </select>
         </div>
         <div>
-            <x-form.input name="image" label="Category image" type="file" accept="image/*" />
+            <x-form.input name="img" label="Category image" type="file" accept="image/*" />
 
             @if ($cat->img)
                 <img width="100" height="100" style="object-fit:contain" src="{{ asset('storage/' . $cat->img) }}"

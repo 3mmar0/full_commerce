@@ -61,6 +61,7 @@ class CategoryController extends Controller
         $slug = Str::slug($request->post('name'));
         $old_path = $cat->img;
         $path = $this->uploadImg($request, 'cats', 'img');
+        // dd($request);
         $cat->update([
             'parent_id' => $request->post('parent_id'),
             'name' => $request->post('name') ?? $cat->name,
