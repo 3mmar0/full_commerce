@@ -25,7 +25,7 @@ Route::get('/link', function () {
 });
 
 Route::get("/", [HomeController::class, 'index'])->name('home');
-Route::get("/products", [ProductsController::class, 'index'])->name('products');
+Route::get("/products", [HomeController::class, 'products'])->name('products');
 Route::get("/products/{product:slug}", [ProductsController::class, 'show'])->name('product');
 Route::resource("/cart", CartController::class);
 

@@ -39,7 +39,7 @@ class CategoryController extends Controller
             'slug' => $slug,
             'disc' => $request->post('disc'),
             'img' => $img,
-            'status' => $request->post('status'),
+            'status' => $request->post('status') ?? 'active',
         ]);
 
         return redirect()->route('dashboard.categories.index')->with(

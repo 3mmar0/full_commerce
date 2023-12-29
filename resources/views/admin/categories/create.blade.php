@@ -26,7 +26,7 @@
                 @endforeach
             </select>
         </div>
-        <x-form.input name="image" label="Category image" type="file" accept="image/*" />
+        <x-form.input name="img" label="Category image" type="file" accept="image/*" />
 
         <div class="form-group">
             <label for="">Status</label>

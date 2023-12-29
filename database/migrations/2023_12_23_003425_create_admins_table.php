@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('phone_number')->unique();
+            $table->string('phone')->unique();
             $table->boolean('super-admin')->default(false);
             $table->enum('status', ['active', 'disactive'])->default('active');
             $table->rememberToken();

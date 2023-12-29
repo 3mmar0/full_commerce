@@ -33,9 +33,26 @@ class ProductController extends Controller
         $img = $this->uploadImg($request, 'cats', 'img');
         $request->merge([
             'image' => $img,
-            'store_id' => 77,
+            'store_id' => 1,
         ]);
-        Product::create($request->all());
+        $product = Product::create($request->except('tags'));
+
+        $tags = json_decode($request->post('tags'));
+        $tag_ids = [];
+
+        foreach ($tags as $item) {
+            $slug = Str::slug($item->value);
+            $tag = Tag::where('slug', $slug)->first();
+            if (!$tag) {
+                $tag = Tag::create([
+                    'name' => $item->value,
+                    'slug' => $slug,
+                ]);
+            }
+            $tag_ids[] = $tag->id;
+        }
+
+        $product->tags()->sync($tag_ids);
 
         return redirect()->route('dashboard.products.index')->with(
             'success',

@@ -17,12 +17,12 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $name = $this->faker->word(2, true);
+
         return [
-            'name' => $name,
-            'slug' => Str::slug($name),
-            'disc' => $this->faker->sentence(12),
-            'img' => $this->faker->imageUrl,
+            'name' => 'luxury',
+            'slug' => 'luxury',
+            'disc' => '',
+            'img' => '',
         ];
     }
 }

@@ -23,7 +23,7 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         OrderCreated::class => [
-            DecutProductQuantity::class,
+            // DecutProductQuantity::class,
             SendOrderCreatedNotification::class,
             // EmptyCart::class
         ]

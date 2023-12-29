@@ -16,4 +16,9 @@ return [
         'route' => 'dashboard.products.index',
         'ttl' => 'Products'
     ],
+    [
+        'icon' => 'nav-icon fas fa-shapes',
+        'route' => 'dashboard.orders.index',
+        'ttl' => 'Orders'
+    ],
 ];

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -51,6 +52,20 @@ class Category extends Model
         if ($filters['status'] ?? false) {
             $builder->where('status', '=', $filters['status']);
         }
+    }
+
+    // Accessors
+    public function getImageUrlAttribute()
+    {
+        if (!$this->img) {
+            return asset('assets/defult.png');
+        }
+
+        if (Str::startsWith($this->img, ['http://', 'https://'])) {
+            return $this->img;
+        }
+
+        return asset('storage/' . $this->img);
     }
 
     public static function rules($id = 0)

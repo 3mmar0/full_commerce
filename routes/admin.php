@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrderControlle;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -18,4 +19,5 @@ Route::group([
     Route::resource('/categories', CategoryController::class);
     Route::post('/categories/{id}', [CategoryController::class, 'update']);
     Route::resource('/products', ProductController::class);
+    Route::resource('/orders', OrderControlle::class);
 });

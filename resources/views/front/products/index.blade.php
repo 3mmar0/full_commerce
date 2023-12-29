@@ -207,8 +207,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
+                                        {{ $products->withQueryString()->links() }}
                                         <!-- Pagination -->
-                                        <div class="pagination left">
+                                        {{-- <div class="pagination left">
                                             <ul class="pagination-list">
                                                 <li><a href="javascript:void(0)">1</a></li>
                                                 <li class="active"><a href="javascript:void(0)">2</a></li>
@@ -217,7 +218,7 @@
                                                 <li><a href="javascript:void(0)"><i
                                                             class="lni lni-chevron-right"></i></a></li>
                                             </ul>
-                                        </div>
+                                        </div> --}}
                                         <!--/ End Pagination -->
                                     </div>
                                 </div>
@@ -257,7 +258,7 @@
                                                     <div class="col-lg-8 col-md-8 col-12">
                                                         <div class="product-info">
                                                             <span
-                                                                class="category">{{ $product->category->name }}</span>
+                                                                class="category">{{ $product->category->name ?? '' }}</span>
                                                             <h4 class="title">
                                                                 <a
                                                                     href="{{ route('product', $product->slug) }}">{{ $product->name }}</a>
@@ -287,8 +288,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
+                                        {{ $products->withQueryString()->links() }}
                                         <!-- Pagination -->
-                                        <div class="pagination left">
+                                        {{-- <div class="pagination left">
                                             <ul class="pagination-list">
                                                 <li><a href="javascript:void(0)">1</a></li>
                                                 <li class="active"><a href="javascript:void(0)">2</a></li>
@@ -297,7 +299,7 @@
                                                 <li><a href="javascript:void(0)"><i
                                                             class="lni lni-chevron-right"></i></a></li>
                                             </ul>
-                                        </div>
+                                        </div> --}}
                                         <!--/ End Pagination -->
                                     </div>
                                 </div>

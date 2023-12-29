@@ -52,7 +52,7 @@ class CheckoutController extends Controller
         DB::beginTransaction();
 
         $items = $cart->get()->groupBy('product.store_id')->all();
-
+        // dd($items);
         try {
             //code...
             foreach ($items as $store_id => $cart_items) {
@@ -60,7 +60,7 @@ class CheckoutController extends Controller
                 $order = Order::create([
                     'store_id' => $store_id,
                     'user_id' => Auth::id(),
-                    'payment_method' => 'cood',
+                    'payment_method' => 'cod',
                 ]);
 
                 foreach ($cart_items as $item) {

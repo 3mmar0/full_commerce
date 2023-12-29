@@ -1,20 +1,16 @@
 @extends('admin.layouts.sidebar')
 
-@section('ttl', 'Products')
+@section('ttl', 'Orders')
 
-@section('page_name', 'Products')
+@section('page_name', 'Orders')
 @section('bread')
     @parent
-    <li class="breadcrumb-item active">Products</li>
+    <li class="breadcrumb-item active">Orders</li>
 @endsection
 
 @section('content')
 
     <x-alert type="success" />
-
-    <a class="my-4 mx-3 right block btn btn-success" href="{{ route('dashboard.products.create') }}">
-        create
-    </a>
 
     <form class="rounded mx-3 mb-4" action="{{ URL::current() }}" method="get">
         <x-form.input name="name" placeholder="Search...." type="search" :value="request('name')" />
@@ -29,33 +25,30 @@
         <thead>
             <tr>
                 <th>#ID</th>
-                <th>Img</th>
-                <th>Name</th>
-                <th>Category</th>
+                <th>#Number</th>
+                <th>From</th>
+                <th>Payment Status</th>
                 <th>Status</th>
                 <th>Created_at</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @forelse ($products as $product)
+            @forelse ($orders as $order)
                 <tr>
-                    <td>{{ $product->id ?? '' }}</td>
-                    <td>
-                        <img width="50" height="50" style="object-fit:contain" src="{{ $product->image_url }}"
-                            alt="">
-                    </td>
-                    <td>{{ $product->name ?? '' }}</td>
-                    <td>{{ $product->category->name ?? '' }}</td>
-                    <td>{{ $product->status ?? '' }}</td>
-                    <td>{{ $product->created_at ?? '' }}</td>
+                    <td>{{ $order->id ?? '' }}</td>
+                    <td>{{ $order->number ?? '' }}</td>
+                    <td>{{ $order->user->name ?? '' }}</td>
+                    <td>{{ $order->payment_status ?? '' }}</td>
+                    <td>{{ $order->status ?? '' }}</td>
+                    <td>{{ $order->created_at ?? '' }}</td>
                     <td>
                         <div class="flex gap-2">
-                            <a href="{{ route('dashboard.products.edit', $product->id) }}"
+                            <a href="{{ route('dashboard.orders.edit', $order->id) }}"
                                 class="mr-2 btn btn-sm btn-outline-success">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <form action="{{ route('dashboard.products.destroy', $product->id) }}" method="post">
+                            <form action="{{ route('dashboard.orders.destroy', $order->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-sm btn-outline-danger">
@@ -67,12 +60,12 @@
                 </tr>
             @empty
                 <tr>
-                    <td class="text-center text-md font-semibold bg-gray" colspan="7">No Products yet.</td>
+                    <td class="text-center text-md font-semibold bg-gray" colspan="8">No orders yet.</td>
                 </tr>
             @endforelse
         </tbody>
     </table>
 
-    {{ $products->withQueryString()->links() }}
+    {{ $orders->withQueryString()->links() }}
 
 @endsection

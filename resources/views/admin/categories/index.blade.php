@@ -43,8 +43,8 @@
                 <tr>
                     <td>{{ $cat->id ?? '' }}</td>
                     <td>
-                        <img width="50" height="50" style="object-fit:contain"
-                            src="{{ asset('storage/' . $cat->img) }}" alt="">
+                        <img width="50" height="50" style="object-fit:contain" src="{{ $cat->image_url }}"
+                            alt="">
                     </td>
                     <td>{{ $cat->name ?? '' }}</td>
                     <td>{{ $cat->parent->name }}</td>
