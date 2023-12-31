@@ -17,7 +17,6 @@ class HomeController extends Controller
     }
     public function products(Request $request)
     {
-        // dd($request->query());
         $products = Product::with('category')->filter($request->query())->latest()->paginate();
         return view('front.products.index', compact('products'));
     }
