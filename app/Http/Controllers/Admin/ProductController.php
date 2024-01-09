@@ -29,8 +29,8 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        // $request->validate(Product::rules());
-        $img = $this->uploadImg($request, 'cats', 'img');
+        $request->validate(Product::rules());
+        $img = $this->uploadImg($request, 'products', 'img');
         $request->merge([
             'image' => $img,
             'store_id' => 1,
@@ -77,7 +77,7 @@ class ProductController extends Controller
         $old_path = $product->image;
         $path = $this->uploadImg($request, 'products', 'img');
         $request->merge([
-            'slug' => $slug,
+            // 'slug' => $slug,
             'image' => $path,
         ]);
         $product->update($request->except('tags'));

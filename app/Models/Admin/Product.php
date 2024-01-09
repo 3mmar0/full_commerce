@@ -7,19 +7,24 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 
-class Product extends Model
+class Product extends Model implements TranslatableContract
 {
-    use HasFactory;
+    use HasFactory, Translatable;
 
-    protected $fillable = [
+    public $translatedAttributes = [
         'name',
         'slug',
         'disc',
-        'image',
         'price',
         'compare_price',
+    ];
+    protected $fillable = [
+        'image',
         'category_id',
         'store_id',
         'featured',
@@ -37,7 +42,12 @@ class Product extends Model
         // });
 
         static::creating(function (Product $product) {
-            $product->slug = Str::slug($product->name);
+            $product->translate('en')->slug = Str::slug($product->translate('en')->name);
+            $product->translate('ar')->slug = Str::slug($product->translate('ar')->name);
+        });
+        static::updating(function (Product $product) {
+            $product->translate('en')->slug = Str::slug($product->translate('en')->name);
+            $product->translate('ar')->slug = Str::slug($product->translate('ar')->name);
         });
     }
 
@@ -117,5 +127,23 @@ class Product extends Model
         }
 
         return round(($this->price / $this->compare_price * 100) - 100, 1);
+    }
+
+    public static function rules($id = 0)
+    {
+        return [
+            'name:en' => [
+                'required', 'string', 'min:3', 'max:255',
+            ],
+            'name:ar' => [
+                'required', 'string', 'min:3', 'max:255',
+            ],
+            'disc' => [
+                'nullable', 'int', 'exists:categories,id'
+            ],
+            'img' => [
+                'image', 'max:1048576',
+            ],
+        ];
     }
 }

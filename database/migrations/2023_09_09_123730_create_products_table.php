@@ -15,12 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('store_id')->nullable()->constrained('stores')->nullOnDelete();
             $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->string('disc')->nullable();
             $table->string('image')->nullable();
-            $table->float('price')->default(0);
-            $table->float('compare_price')->nullable();
             $table->float('rating')->default(0);
             $table->json('options')->nullable();
             $table->boolean('featured')->default(0);

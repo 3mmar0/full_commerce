@@ -10,12 +10,16 @@ class Currency
     {
         return static::format(...$params);
     }
-    public static function format($value, $currency = null)
+    public static function format($value)
     {
         $formatter = new NumberFormatter(config('app.locale'), NumberFormatter::CURRENCY);
 
-        if ($currency === null) {
-            $currency = config('app.currency', 'USD');
+        $currency = null;
+        if (config('app.locale') === 'en') {
+            $currency = "USD";
+        }
+        if (config('app.locale') === 'ar') {
+            $currency = "EGP";
         }
         return $formatter->formatCurrency($value, $currency);
     }

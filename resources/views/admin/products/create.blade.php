@@ -15,8 +15,10 @@
         enctype="multipart/form-data">
         @csrf
         @method('post')
-        <x-form.input name="name" label="product name" type="text" />
-        <x-form.text name="disc" label="product disc" />
+        <x-form.input name="name:en" label="product name (en)" type="text" />
+        <x-form.input name="name:ar" label="product name (ar)" type="text" />
+        <x-form.text name="disc:en" label="product disc (en)" />
+        <x-form.text name="disc:ar" label="product disc (ar)" />
 
         <div class="form-group ">
             <label for="category_id">product category</label>
@@ -26,8 +28,10 @@
                 @endforeach
             </select>
         </div>
-        <x-form.input type="number" name="price" label="product price" />
-        <x-form.input type="number" name="compare_price" label="product compare_price" />
+        <x-form.input type="number" name="price:en" label="product price (en)" />
+        <x-form.input type="number" name="price:ar" label="product price (ar)" />
+        <x-form.input type="number" name="compare_price:en" label="product compare_price (en)" />
+        <x-form.input type="number" name="compare_price:ar" label="product compare_price (ar)" />
         <div>
             <x-form.input name="img" label="product image" type="file" accept="image/*" />
         </div>

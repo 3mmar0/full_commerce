@@ -50,26 +50,9 @@
                             <ul class="menu-top-link">
                                 <li>
                                     <div class="select-position">
-                                        <select id="select4">
-                                            <option value="0" selected>$ USD</option>
-                                            <option value="1">€ EURO</option>
-                                            <option value="2">$ CAD</option>
-                                            <option value="3">₹ INR</option>
-                                            <option value="4">¥ CNY</option>
-                                            <option value="5">৳ BDT</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="select-position">
                                         <select id="select5">
                                             <option value="0" selected>English</option>
-                                            <option value="1">Español</option>
-                                            <option value="2">Filipino</option>
-                                            <option value="3">Français</option>
-                                            <option value="4">العربية</option>
-                                            <option value="5">हिन्दी</option>
-                                            <option value="6">বাংলা</option>
+                                            <option value="1">العربية</option>
                                         </select>
                                     </div>
                                 </li>
@@ -79,8 +62,8 @@
                     <div class="col-lg-4 col-md-4 col-12">
                         <div class="top-middle">
                             <ul class="useful-links">
-                                <li><a href="{{ route('home') }}">Home</a></li>
-                                <li><a href="{{ route('products') }}">Products</a></li>
+                                <li><a href="{{ route('home') }}">{{ __('home page') }}</a></li>
+                                <li><a href="{{ route('products') }}">{{ __('products') }}</a></li>
                                 <li><a href="{{ route('dashboard.dashboard') }}">Dashboard</a></li>
                             </ul>
                         </div>
