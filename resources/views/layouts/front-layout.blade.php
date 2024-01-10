@@ -50,9 +50,11 @@
                             <ul class="menu-top-link">
                                 <li>
                                     <form action="{{ URL::current() }}" method="GET" class="select-position">
-                                        <select name="locale" @selected(App::currentLocale())
+                                        <select name="locale" @selected(App::getLocale())
                                             onchange="this.form.submit()">
-                                            <option class="px-4" value="en" selected>English</option>
+                                            <option class="px-4" hidden>
+                                                {{ App::getLocale() == 'ar' ? 'العربية' : 'English' }}</option>
+                                            <option class="px-4" value="en">English</option>
                                             <option class="px-4" value="ar">العربية</option>
                                         </select>
                                     </form>
@@ -64,9 +66,9 @@
                         <div class="top-middle">
                             <ul class="useful-links">
                                 <li><a href="{{ route('home') }}">{{ __('home page') }}</a></li>
-                                <li><a href="{{ route('products') }}">{{ __('products') }}</a></li>
+                                <li><a href="{{ route('products') }}">{{ __('Products') }}</a></li>
                                 @if (Auth::guard('admin')->user())
-                                    <li><a href="{{ route('dashboard.dashboard') }}">Dashboard</a></li>
+                                    <li><a href="{{ route('dashboard.dashboard') }}">{{ __('Dashboard') }}</a></li>
                                 @endif
                             </ul>
                         </div>
@@ -83,7 +85,7 @@
 
                                         <form class="" method="post" action="{{ route('logout') }}">
                                             @csrf
-                                            <button class="btn btn-outline-light ">Logout</button>
+                                            <button class="btn btn-outline-light ">{{ __('Logout') }}</button>
                                         </form>
                                     </li>
                                 </div>
@@ -91,10 +93,10 @@
                             @if (!Auth::guard('web')->user())
                                 <ul class="user-login">
                                     <li>
-                                        <a href="{{ route('login') }}">Sign In</a>
+                                        <a href="{{ route('login') }}">{{ __('Sign In') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('register') }}">Register</a>
+                                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
                                 </ul>
                             @endif
@@ -119,26 +121,15 @@
                         <!-- Start Main Menu Search -->
                         <div class="main-menu-search">
                             <!-- navbar search start -->
-                            <div class="navbar-search search-style-5">
-                                <div class="search-select">
-                                    <div class="select-position">
-                                        <select id="select1">
-                                            <option selected>All</option>
-                                            <option value="1">option 01</option>
-                                            <option value="2">option 02</option>
-                                            <option value="3">option 03</option>
-                                            <option value="4">option 04</option>
-                                            <option value="5">option 05</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <form action="{{ route('products') }}" class="navbar-search search-style-5">
                                 <div class="search-input">
-                                    <input type="text" placeholder="Search">
+                                    <input type="text" value="{{ old('name', request('name')) }}" name="name"
+                                        placeholder="Search">
                                 </div>
                                 <div class="search-btn">
                                     <button><i class="lni lni-search-alt"></i></button>
                                 </div>
-                            </div>
+                            </form>
                             <!-- navbar search Ends -->
                         </div>
                         <!-- End Main Menu Search -->
@@ -147,7 +138,7 @@
                         <div class="middle-right-area">
                             <div class="nav-hotline">
                                 <i class="lni lni-phone"></i>
-                                <h3>Hotline:
+                                <h3>{{ __('Hotline') }}:
                                     <span>(+100) 123 456 7890</span>
                                 </h3>
                             </div>
@@ -167,7 +158,7 @@
                     <div class="nav-inner">
                         <!-- Start Mega Category Menu -->
                         <div class="mega-category-menu">
-                            <span class="cat-button"><i class="lni lni-menu"></i>All Categories</span>
+                            <span class="cat-button"><i class="lni lni-menu"></i>{{ __('All Categories') }}</span>
                             {{-- @dd($cats)
                             @if ($cats) --}}
                             <ul class="sub-category">
@@ -200,17 +191,19 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul id="nav" class="navbar-nav ms-auto">
                                     <li class="nav-item">
-                                        <a href="{{ route('home') }}" aria-label="Toggle navigation">Home</a>
+                                        <a href="{{ route('home') }}"
+                                            aria-label="Toggle navigation">{{ __('home page') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('products') }}" aria-label="Toggle navigation">Products</a>
+                                        <a href="{{ route('products') }}"
+                                            aria-label="Toggle navigation">{{ __('Products') }}</a>
                                     </li>
                                     {{-- <li class="nav-item">
                                         <a href="{{ route('orders') }}" aria-label="Toggle navigation">Orders</a>
                                     </li> --}}
                                     <li class="nav-item">
                                         <a href="{{ route('profile.edit') }}"
-                                            aria-label="Toggle navigation">Profile</a>
+                                            aria-label="Toggle navigation">{{ __('Profile') }}</a>
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
@@ -221,7 +214,7 @@
                 <div class="col-lg-4 col-md-6 col-12">
                     <!-- Start Nav Social -->
                     <div class="nav-social">
-                        <h5 class="title">Follow Us:</h5>
+                        <h5 class="title">{{ __('Follow Us') }}:</h5>
                         <ul>
                             <li>
                                 <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>

@@ -61,11 +61,19 @@ class Product extends Model implements TranslatableContract
         $options = array_merge([
             'category_id' => null,
             'tag_id' => null,
+            'name' => null,
             'status' => 'active',
         ], $filters);
-        if ($filters['name'] ?? false) {
-            $builder->where('name', 'LIKE', "%{$filters['name']}%");
-        }
+        // if ($filters['name'] ?? false) {
+        //     $builder->where('name', 'LIKE', "%{$filters['name']}%");
+        // }
+        $builder->when($options['name'], function ($builder, $value) {
+            $builder->whereHas('translations', function ($builder) use ($value) {
+                $builder->where('name', 'LIKE', "%{$value}%");
+            });
+            // dd($builder->category);
+            // $builder->translated->where('name', 'LIKE', "%{$value}%");
+        });
         $builder->when($options['status'], function ($builder, $value) {
             $builder->whereStatus($value);
         });
