@@ -49,12 +49,13 @@
                         <div class="top-left">
                             <ul class="menu-top-link">
                                 <li>
-                                    <div class="select-position">
-                                        <select id="select5">
-                                            <option value="0" selected>English</option>
-                                            <option value="1">العربية</option>
+                                    <form action="{{ URL::current() }}" method="GET" class="select-position">
+                                        <select name="locale" @selected(App::currentLocale())
+                                            onchange="this.form.submit()">
+                                            <option class="px-4" value="en" selected>English</option>
+                                            <option class="px-4" value="ar">العربية</option>
                                         </select>
-                                    </div>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
@@ -64,7 +65,9 @@
                             <ul class="useful-links">
                                 <li><a href="{{ route('home') }}">{{ __('home page') }}</a></li>
                                 <li><a href="{{ route('products') }}">{{ __('products') }}</a></li>
-                                <li><a href="{{ route('dashboard.dashboard') }}">Dashboard</a></li>
+                                @if (Auth::guard('admin')->user())
+                                    <li><a href="{{ route('dashboard.dashboard') }}">Dashboard</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>

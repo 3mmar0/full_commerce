@@ -38,6 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\UpdateUserActive::class,
             \App\Http\Middleware\MarkNotificationAsread::class,
+            \App\Http\Middleware\SetAppLocale::class,
         ],
 
         'api' => [
