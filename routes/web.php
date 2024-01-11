@@ -7,6 +7,7 @@ use App\Http\Controllers\Front\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TwoFactorAuthController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,20 +25,23 @@ Route::get('/link', function () {
     echo 'ok';
 });
 
-Route::get("/", [HomeController::class, 'index'])->name('home');
-Route::get("/products", [HomeController::class, 'products'])->name('products');
-Route::get("/products/{product:slug}", [ProductsController::class, 'show'])->name('product');
-Route::resource("/cart", CartController::class);
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
+    Route::get("/", [HomeController::class, 'index'])->name('home');
+    Route::get("/products", [HomeController::class, 'products'])->name('products');
+    Route::get("/products/{product:slug}", [ProductsController::class, 'show'])->name('product');
+    Route::resource("/cart", CartController::class);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
+
+    Route::get('checkout', [CheckoutController::class, 'create'])->name('checkout');
+    Route::post('checkout', [CheckoutController::class, 'store']);
+
+    Route::get('auht/user/2fa', [TwoFactorAuthController::class, 'index'])->name('front.2fa');
 });
 
-Route::get('checkout', [CheckoutController::class, 'create'])->name('checkout');
-Route::post('checkout', [CheckoutController::class, 'store']);
-
-Route::get('auht/user/2fa', [TwoFactorAuthController::class, 'index'])->name('front.2fa');
 // require __DIR__ . '/auth.php';
 require __DIR__ . '/admin.php';

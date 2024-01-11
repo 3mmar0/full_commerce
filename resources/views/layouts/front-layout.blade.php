@@ -48,15 +48,14 @@
                     <div class="col-lg-4 col-md-4 col-12">
                         <div class="top-left">
                             <ul class="menu-top-link">
-                                <li>
-                                    <form action="{{ URL::current() }}" method="GET" class="select-position">
-                                        <select name="locale" @selected(App::currentLocale())
-                                            onchange="this.form.submit()">
-                                            <option class="px-4" value="en" selected>English</option>
-                                            <option class="px-4" value="ar">العربية</option>
-                                        </select>
-                                    </form>
-                                </li>
+                                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li>
+                                        <a rel="alternate" hreflang="{{ $localeCode }}"
+                                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -119,26 +118,14 @@
                         <!-- Start Main Menu Search -->
                         <div class="main-menu-search">
                             <!-- navbar search start -->
-                            <div class="navbar-search search-style-5">
-                                <div class="search-select">
-                                    <div class="select-position">
-                                        <select id="select1">
-                                            <option selected>All</option>
-                                            <option value="1">option 01</option>
-                                            <option value="2">option 02</option>
-                                            <option value="3">option 03</option>
-                                            <option value="4">option 04</option>
-                                            <option value="5">option 05</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <form action="{{ route('products') }}" class="navbar-search search-style-5">
                                 <div class="search-input">
-                                    <input type="text" placeholder="Search">
+                                    <input type="text" name="name" placeholder="Search">
                                 </div>
                                 <div class="search-btn">
                                     <button><i class="lni lni-search-alt"></i></button>
                                 </div>
-                            </div>
+                            </form>
                             <!-- navbar search Ends -->
                         </div>
                         <!-- End Main Menu Search -->
@@ -212,6 +199,12 @@
                                         <a href="{{ route('profile.edit') }}"
                                             aria-label="Toggle navigation">Profile</a>
                                     </li>
+                                    @if (Auth::guard('admin')->user())
+                                        <li class="nav-item">
+                                            <a href="{{ route('dashboard.dashboard') }}"
+                                                aria-label="Toggle navigation">Dashboard</a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div> <!-- navbar collapse -->
                         </nav>
