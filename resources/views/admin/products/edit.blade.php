@@ -15,8 +15,11 @@
         enctype="multipart/form-data">
         @csrf
         @method('put')
-        <x-form.input name="name" value="{{ $product->name }}" label="product name" type="text" />
-        <x-form.text name="disc" value="{{ $product->disc }}" label="product disc" />
+        <x-form.input name="name:en" value="{{ $product->name }}" label="product name (en)" type="text" />
+        <x-form.input name="name:ar" value="{{ $product->translate('ar')->name }}" label="product name (ar)"
+            type="text" />
+        <x-form.text name="disc:en" value="{{ $product->disc }}" label="product disc (en)" />
+        <x-form.text name="disc:ar" value="{{ $product->translate('ar')->disc }}" label="product disc (ar)" />
         {{-- <x-form.select name="category_id" :options="$cats" selected="{{ $product->category_id }}"
                 label="product category" /> --}}
 
@@ -28,9 +31,14 @@
                 @endforeach
             </select>
         </div>
-        <x-form.input type="number" name="price" value="{{ $product->price }}" label="product price" />
-        <x-form.input type="number" name="compare_price" value="{{ $product->compare_price }}"
-            label="product compare_price" />
+
+        <x-form.input type="number" value="{{ $product->price }}" name="price:en" label="product price (en)" />
+        <x-form.input type="number" value="{{ $product->translate('ar')->price }}" name="price:ar"
+            label="product price (ar)" />
+        <x-form.input type="number" value="{{ $product->compare_price }}" name="compare_price:en"
+            label="product compare_price (en)" />
+        <x-form.input type="number" value="{{ $product->translate('ar')->compare_price }}" name="compare_price:ar"
+            label="product compare_price (ar)" />
         {{-- <x-form.input name="store" value="{{ $product->store->name }}" label="product store"
             disabled="{{ true }}" /> --}}
         <div>

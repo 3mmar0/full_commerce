@@ -34,38 +34,33 @@
                             @csrf
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="reg-fn">First Name</label>
-                                    <input class="form-control" type="text" id="reg-fn" required>
+                                    <label for="name">Name</label>
+                                    <input class="form-control" type="text" name="name" id="name" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="reg-ln">Last Name</label>
-                                    <input class="form-control" type="text" id="reg-ln" required>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="reg-email">E-mail Address</label>
-                                    <input class="form-control" type="email" id="reg-email" required>
+                                    <label for="email">E-mail Address</label>
+                                    <input class="form-control" type="email" name="email" id="email" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="reg-phone">Phone Number</label>
-                                    <input class="form-control" type="text" id="reg-phone" required>
+                                    <input class="form-control" type="text" name="phone" id="reg-phone" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="reg-pass">Password</label>
-                                    <input class="form-control" type="password" id="reg-pass" required>
+                                    <input class="form-control" type="password" name="password" id="reg-pass" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="reg-pass-confirm">Confirm Password</label>
-                                    <input class="form-control" type="password" id="reg-pass-confirm" required>
+                                    <input class="form-control" type="password" name="password_confirmation"
+                                        id="reg-pass-confirm" required>
                                 </div>
                             </div>
                             <div class="button">
