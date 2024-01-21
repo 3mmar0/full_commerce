@@ -29,3 +29,4 @@ This is an e-commerce application that have some feature like:
 - complete translation all the app
 - adding basic chart graph
 - complete filtring the products
+- adding adds and carusel
