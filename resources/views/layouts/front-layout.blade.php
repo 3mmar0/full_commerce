@@ -48,17 +48,14 @@
                     <div class="col-lg-4 col-md-4 col-12">
                         <div class="top-left">
                             <ul class="menu-top-link">
-                                <li>
-                                    <form action="{{ URL::current() }}" method="GET" class="select-position">
-                                        <select name="locale" @selected(App::getLocale())
-                                            onchange="this.form.submit()">
-                                            <option class="px-4" hidden>
-                                                {{ App::getLocale() == 'ar' ? 'العربية' : 'English' }}</option>
-                                            <option class="px-4" value="en">English</option>
-                                            <option class="px-4" value="ar">العربية</option>
-                                        </select>
-                                    </form>
-                                </li>
+                                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li>
+                                        <a rel="alternate" hreflang="{{ $localeCode }}"
+                                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -205,6 +202,12 @@
                                         <a href="{{ route('profile.edit') }}"
                                             aria-label="Toggle navigation">{{ __('Profile') }}</a>
                                     </li>
+                                    @if (Auth::guard('admin')->user())
+                                        <li class="nav-item">
+                                            <a href="{{ route('dashboard.dashboard') }}"
+                                                aria-label="Toggle navigation">Dashboard</a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div> <!-- navbar collapse -->
                         </nav>

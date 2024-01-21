@@ -53,10 +53,12 @@
                     <td>{{ $cat->created_at ?? '' }}</td>
                     <td>
                         <div class="flex gap-2">
-                            <a href="{{ route('dashboard.categories.edit', $cat->id) }}"
-                                class="mr-2 btn btn-sm btn-outline-success">
-                                <i class="fas fa-edit"></i>
-                            </a>
+                            @can('categories.update')
+                                <a href="{{ route('dashboard.categories.edit', $cat->id) }}"
+                                    class="mr-2 btn btn-sm btn-outline-success">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            @endcan
                             <form action="{{ route('dashboard.categories.destroy', $cat->id) }}" method="post">
                                 @csrf
                                 @method('delete')
