@@ -162,13 +162,15 @@
                                 @foreach ($cats as $cat)
                                     <li><a href="{{ route('products') }}?category_id={{ $cat->id }}">{{ $cat->name }}
                                             <i class="lni lni-chevron-right"></i></a>
-                                        <ul class="inner-sub-category">
-                                            @foreach ($cat->children as $child)
-                                                <li><a
-                                                        href="{{ route('products') }}?category_id={{ $child->id }}">{{ $child->name }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
+                                            @if ($cat->children->count())
+                                            <ul class="inner-sub-category">
+                                                @foreach ($cat->children as $child)
+                                                    <li><a
+                                                            href="{{ route('products') }}?category_id={{ $child->id }}">{{ $child->name }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                            @endif
                                     </li>
                                 @endforeach
                             </ul>
