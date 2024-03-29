@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-md-6 col-12">
+<div class="col-lg-4 col-md-6 col-6">
     <!-- Start Single Product -->
     <div class="single-product">
         <div class="product-image">

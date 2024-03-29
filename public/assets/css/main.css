@@ -2511,29 +2511,17 @@ ol {
     position: relative;
 }
 @media (max-width: 767px) {
-    .hero-area .hero-slider .single-slider {
-        position: relative;
-    }
-    .hero-area .hero-slider .single-slider::before {
-        position: absolute;
-        left: 0;
-        top: 0;
-        content: "";
-        height: 100%;
-        width: 100%;
-        background-color: #fff;
-        opacity: 0.6;
-    }
+
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .hero-area .hero-slider .single-slider {
-        height: 400px;
+        height: 350;
         margin-bottom: 12px;
     }
 }
 @media (max-width: 767px) {
     .hero-area .hero-slider .single-slider {
-        height: 350px;
+        height: 245px;
         margin-bottom: 12px;
     }
 }
