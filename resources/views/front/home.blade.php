@@ -36,6 +36,12 @@
 
                             </div>
                             <!-- End Single Slider -->
+                            <!-- Start Single Slider -->
+                            <div class="single-slider"
+                                style="background-image: url(assets/images/hero/1.3.png);">
+
+                            </div>
+                            <!-- End Single Slider -->
                         </div>
                         <!-- End Hero Slider -->
                     </div>
@@ -45,14 +51,14 @@
                         <div class="col-lg-12 col-md-6 col-12 md-custom-padding">
                             <!-- Start Small Banner -->
                             <div class="hero-small-banner"
-                                style="background-image: url('assets/images/hero/1.4.png');">
+                                style="background-image: url('assets/images/hero/b1.png');">
 
                             </div>
                             <!-- End Small Banner -->
                         </div>
                         <div class="col-lg-12 col-md-6 col-12">
                             <!-- Start Small Banner -->
-                            <div class="hero-small-banner style2" style="background-image: url('assets/images/hero/1.5.png');">
+                            <div class="hero-small-banner style2" style="background-image: url('assets/images/hero/b2.png');">
 
                             </div>
                             <!-- Start Small Banner -->
@@ -90,250 +96,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-12">
-                    <div class="single-banner" style="background-image:url('assets/images/banner/banner-1-bg.jpg')">
-                        <div class="content">
-                            <h2>Smart Watch 2.0</h2>
-                            <p>Space Gray Aluminum Case with <br>Black/Volt Real Sport Band </p>
-                            <div class="button">
-                                <a href="{{ route('products') }}" class="btn">View Details</a>
-                            </div>
-                        </div>
+                    <div class="single-banner" style="object-fit: contain;aspect-ratio:3.5/2 ;background-image:url('assets/images/hero/1.4.png')">
+                        <div class="content"></div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="single-banner custom-responsive-margin"
-                        style="background-image:url('assets/images/banner/banner-2-bg.jpg')">
-                        <div class="content">
-                            <h2>Smart Headphone</h2>
-                            <p>Lorem ipsum dolor sit amet, <br>eiusmod tempor
-                                incididunt ut labore.</p>
-                            <div class="button">
-                                <a href="{{ route('products') }}" class="btn">Shop Now</a>
-                            </div>
-                        </div>
+                        style="object-fit: contain;aspect-ratio:3.5/2 ;background-image:url('assets/images/hero/1.5.png')">
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- End Banner Area -->
-
-    <!-- Start Special Offer -->
-    <section class="special-offer section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h2>Special Offer</h2>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-md-12 col-12">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-12">
-                            <!-- Start Single Product -->
-                            <div class="single-product">
-                                <div class="product-image">
-                                    <img src="assets/images/products/product-3.jpg" alt="#">
-                                    <div class="button">
-                                        <a href="{{ route('products') }}" class="btn"><i class="lni lni-cart"></i>
-                                            Add to
-                                            Cart</a>
-                                    </div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="category">Camera</span>
-                                    <h4 class="title">
-                                        <a href="{{ route('products') }}">WiFi Security Camera</a>
-                                    </h4>
-                                    <ul class="review">
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><span>5.0 Review(s)</span></li>
-                                    </ul>
-                                    <div class="price">
-                                        <span>$399.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Product -->
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12">
-                            <!-- Start Single Product -->
-                            <div class="single-product">
-                                <div class="product-image">
-                                    <img src="assets/images/products/product-8.jpg" alt="#">
-                                    <div class="button">
-                                        <a href="{{ route('products') }}" class="btn"><i class="lni lni-cart"></i>
-                                            Add to
-                                            Cart</a>
-                                    </div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="category">Laptop</span>
-                                    <h4 class="title">
-                                        <a href="{{ route('products') }}">Apple MacBook Air</a>
-                                    </h4>
-                                    <ul class="review">
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><span>5.0 Review(s)</span></li>
-                                    </ul>
-                                    <div class="price">
-                                        <span>$899.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Product -->
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12">
-                            <!-- Start Single Product -->
-                            <div class="single-product">
-                                <div class="product-image">
-                                    <img src="assets/images/products/product-6.jpg" alt="#">
-                                    <div class="button">
-                                        <a href="{{ route('products') }}" class="btn"><i class="lni lni-cart"></i>
-                                            Add to
-                                            Cart</a>
-                                    </div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="category">Speaker</span>
-                                    <h4 class="title">
-                                        <a href="{{ route('products') }}">Bluetooth Speaker</a>
-                                    </h4>
-                                    <ul class="review">
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star-filled"></i></li>
-                                        <li><i class="lni lni-star"></i></li>
-                                        <li><span>4.0 Review(s)</span></li>
-                                    </ul>
-                                    <div class="price">
-                                        <span>$70.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Product -->
-                        </div>
-                    </div>
-                    <!-- Start Banner -->
-                    <div class="single-banner right"
-                        style="background-image:url('assets/images/banner/banner-3-bg.jpg');margin-top: 30px;">
-                        <div class="content">
-                            <h2>Samsung Notebook 9 </h2>
-                            <p>Lorem ipsum dolor sit amet, <br>eiusmod tempor
-                                incididunt ut labore.</p>
-                            <div class="price">
-                                <span>$590.00</span>
-                            </div>
-                            <div class="button">
-                                <a href="{{ route('products') }}" class="btn">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Banner -->
-                </div>
-                <div class="col-lg-4 col-md-12 col-12">
-                    <div class="offer-content">
-                        <div class="image">
-                            <img src="assets/images/offer/offer-image.jpg" alt="#">
-                            <span class="sale-tag">-50%</span>
-                        </div>
-                        <div class="text">
-                            <h2><a href="{{ route('products') }}">Bluetooth Headphone</a></h2>
-                            <ul class="review">
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><span>5.0 Review(s)</span></li>
-                            </ul>
-                            <div class="price">
-                                <span>$200.00</span>
-                                <span class="discount-price">$400.00</span>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry incididunt ut
-                                eiusmod tempor labores.</p>
-                        </div>
-                        <div class="box-head">
-                            <div class="box">
-                                <h1 id="days">000</h1>
-                                <h2 id="daystxt">Days</h2>
-                            </div>
-                            <div class="box">
-                                <h1 id="hours">00</h1>
-                                <h2 id="hourstxt">Hours</h2>
-                            </div>
-                            <div class="box">
-                                <h1 id="minutes">00</h1>
-                                <h2 id="minutestxt">Minutes</h2>
-                            </div>
-                            <div class="box">
-                                <h1 id="seconds">00</h1>
-                                <h2 id="secondstxt">Secondes</h2>
-                            </div>
-                        </div>
-                        <div style="background: rgb(204, 24, 24);" class="alert">
-                            <h1 style="padding: 50px 80px;color: white;">We are sorry, Event ended ! </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Special Offer -->
-
-    <!-- Start Brands Area -->
-    <div class="brands">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
-                    <h2 class="title">Popular Brands</h2>
-                </div>
-            </div>
-            <div class="brands-logo-wrapper">
-                <div class="brands-logo-carousel d-flex align-items-center justify-content-between">
-                    <div class="brand-logo">
-                        <img src="assets/images/brands/01.png" alt="#">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="assets/images/brands/02.png" alt="#">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="assets/images/brands/03.png" alt="#">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="assets/images/brands/04.png" alt="#">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="assets/images/brands/05.png" alt="#">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="assets/images/brands/06.png" alt="#">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="assets/images/brands/03.png" alt="#">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="assets/images/brands/04.png" alt="#">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Brands Area -->
 
     <!-- Start Shipping Info -->
     <section class="shipping-info">
@@ -345,8 +121,8 @@
                         <i class="lni lni-delivery"></i>
                     </div>
                     <div class="media-body">
-                        <h5>Free Shipping</h5>
-                        <span>On order over $99</span>
+                        <h5>شحن مجاني</h5>
+                        <span>عند الشراء باكثر من 1000ج</span>
                     </div>
                 </li>
                 <!-- Money Return -->
@@ -355,8 +131,8 @@
                         <i class="lni lni-support"></i>
                     </div>
                     <div class="media-body">
-                        <h5>24/7 Support.</h5>
-                        <span>Live Chat Or Call.</span>
+                        <h5>دعم متواصل</h5>
+                        <span> الدردشة أو الاتصال. </span>
                     </div>
                 </li>
                 <!-- Support 24/7 -->
@@ -365,8 +141,8 @@
                         <i class="lni lni-credit-cards"></i>
                     </div>
                     <div class="media-body">
-                        <h5>Online Payment.</h5>
-                        <span>Secure Payment Services.</span>
+                        <h5>الدفع الالكتروني.</h5>
+                        <span>فودافون كاش او عند الاستلام</span>
                     </div>
                 </li>
                 <!-- Safe Payment -->
@@ -375,8 +151,8 @@
                         <i class="lni lni-reload"></i>
                     </div>
                     <div class="media-body">
-                        <h5>Easy Return.</h5>
-                        <span>Hassle Free Shopping.</span>
+                        <h5>الاسترجاع.</h5>
+                        <span>الاسترجاع خلال 14 يوم.</span>
                     </div>
                 </li>
             </ul>

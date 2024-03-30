@@ -2,7 +2,9 @@
     <!-- Start Single Product -->
     <div class="single-product">
         <div class="product-image">
-            <img src="{{ $product->image_url }}" alt="#{{ $product->name }} img" style="aspect-ratio: 1/1" />
+            <a href="{{ route('product', $product->slug ?? '') }}">
+                <img src="{{ $product->image_url }}" alt="#{{ $product->name }} img" style="aspect-ratio: 1/1" />
+            </a>
             @if ($product->compare_price)
                 <span class="sale-tag">{{ $product->sale_price }}%</span>
             @endif

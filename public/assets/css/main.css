@@ -4336,10 +4336,10 @@ blockquote span {
     background-color: #0167f3;
 }
 .item-details {
-    background-color: #f9f9f9;
+    background-color: var(--black-color);
 }
 .item-details .top-area {
-    background-color: #fff;
+    background-color: #333;
     padding: 30px;
     border: 1px solid #eee;
     border-radius: 4px;
@@ -4417,7 +4417,7 @@ blockquote span {
     color: #0167f3;
 }
 .item-details .product-info .price {
-    color: #081828;
+    color: var(--sub-color);
     display: block;
     font-size: 24px;
     font-weight: 600;
@@ -4850,7 +4850,7 @@ blockquote span {
     color: #fff;
 }
 .product-details-info .single-block {
-    background-color: #fff;
+    background-color: #222;
     padding: 30px;
     border: 1px solid #eee;
     border-radius: 4px;
