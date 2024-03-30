@@ -222,16 +222,13 @@
                         <h5 class="title">{{ __('Follow Us') }}:</h5>
                         <ul>
                             <li>
-                                <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=61556952544486"><i class="lni lni-facebook-filled"></i></a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
+                                <a href="https://www.tiktok.com/@agamagam9876"><i class="lni lni-tiktok"></i></a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)"><i class="lni lni-instagram"></i></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><i class="lni lni-skype"></i></a>
+                                <a href="https://www.instagram.com/ajamajam9876/"><i class="lni lni-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -261,7 +258,7 @@
                         <div class="col-lg-3 col-md-4 col-12">
                             <div class="footer-logo">
                                 <a href="{{ route('home') }}">
-                                    <img src="{{ asset('assets/images/logo/white-logo.svg') }}" alt="#">
+                                    <img src="{{ asset('assets/images/logo/logo.svg') }}" alt="#">
                                 </a>
                             </div>
                         </div>
@@ -291,45 +288,20 @@
             <div class="container">
                 <div class="bottom-inner">
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12">
                             <!-- Single Widget -->
                             <div class="single-footer f-contact">
                                 <h3>Get In Touch With Us</h3>
-                                <p class="phone">Phone: +1 (900) 33 169 7720</p>
+                                <p class="phone">Phone: +20 101 167 1349</p>
                                 <ul>
-                                    <li><span>Monday-Friday: </span> 9.00 am - 8.00 pm</li>
-                                    <li><span>Saturday: </span> 10.00 am - 6.00 pm</li>
                                 </ul>
                                 <p class="mail">
-                                    <a href="mailto:support@shopgrids.com">support@shopgrids.com</a>
+                                    <a href="mailto:agamperfumes@gmail.com">agamperfumes@gmail.com</a>
                                 </p>
                             </div>
                             <!-- End Single Widget -->
                         </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer our-app">
-                                <h3>Our Mobile App</h3>
-                                <ul class="app-btn">
-                                    <li>
-                                        <a href="javascript:void(0)">
-                                            <i class="lni lni-apple"></i>
-                                            <span class="small-title">Download on the</span>
-                                            <span class="big-title">App Store</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">
-                                            <i class="lni lni-play-store"></i>
-                                            <span class="small-title">Download on the</span>
-                                            <span class="big-title">Google Play</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12">
                             <!-- Single Widget -->
                             <div class="single-footer f-link">
                                 <h3>Information</h3>
@@ -343,7 +315,7 @@
                             </div>
                             <!-- End Single Widget -->
                         </div>
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12">
                             <!-- Single Widget -->
                             <div class="single-footer f-link">
                                 <h3>Shop Departments</h3>
@@ -369,15 +341,14 @@
                     <div class="row align-items-center">
                         <div class="col-lg-4 col-12">
                             <div class="payment-gateway">
-                                <span>We Accept:</span>
-                                <img src="{{ asset('assets/images/footer/credit-cards-footer.png') }}"
-                                    alt="#">
+                                    {{-- <span>We Accept:</span>
+                                    <img src="{{ asset('assets/images/footer/credit-cards-footer.png') }}"
+                                        alt="#"> --}}
                             </div>
                         </div>
                         <div class="col-lg-4 col-12">
                             <div class="copyright">
-                                <p>Designed and Developed by<a href="https://graygrids.com/" rel="nofollow"
-                                        target="_blank">GrayGrids</a></p>
+                                <p>Designed and Developed by<a href="#">Ajam</a></p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-12">
@@ -385,10 +356,10 @@
                                 <li>
                                     <span>Follow Us On:</span>
                                 </li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-google"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=61556952544486"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="https://www.tiktok.com/@agamagam9876"><i class="lni lni-tiktok"></i></a></li>
+                                <li><a href="https://www.instagram.com/ajamajam9876/"><i class="lni lni-instagram"></i></a></li>
+
                             </ul>
                         </div>
                     </div>
