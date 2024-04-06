@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
             $table->string('locale')->index();
             $table->string('name');
-            $table->string('slug')->unique();
-            $table->string('disc')->nullable();
+            $table->string('slug');
+            $table->text('disc')->nullable();
             $table->float('price')->default(0);
             $table->float('compare_price')->nullable();
 

@@ -25,8 +25,15 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Store::factory(1)->create();
-        Category::factory(1)->create();
-        Product::factory(3)->create();
+        Category::create([
+            'name' => 'ديزاينر',
+            'slug' => 'dyzaynr',
+        ]);
+        Category::create([
+            'name' => 'نيش',
+            'slug' => 'nysh',
+        ]);
+        // Product::factory(3)->create();
 
         $this->call(UserSeeder::class);
     }

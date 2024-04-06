@@ -16,7 +16,7 @@ class Currency
 
         $currency = null;
         if (config('app.locale') === 'en') {
-            $currency = "USD";
+            $currency = "EGP";
         }
         if (config('app.locale') === 'ar') {
             $currency = "EGP";

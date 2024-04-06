@@ -76,14 +76,35 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Trending Product</h2>
+                        <h2>30ml Products</h2>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have
                             suffered alteration in some form.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                @foreach ($products as $product)
+                @foreach ($products30 as $product)
+                    <x-product-card :product="$product" />
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- End Trending Product Area -->
+
+    <!-- Start Trending Product Area -->
+    <section class="trending-product section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>60ml Products</h2>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach ($products60 as $product)
                     <x-product-card :product="$product" />
                 @endforeach
             </div>
@@ -110,6 +131,27 @@
         </div>
     </section>
     <!-- End Banner Area -->
+
+        <!-- Start Trending Product Area -->
+        <section class="trending-product section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h2>100ml Products</h2>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                suffered alteration in some form.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach ($products100 as $product)
+                        <x-product-card :product="$product" />
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        <!-- End Trending Product Area -->
 
     <!-- Start Shipping Info -->
     <section class="shipping-info">

@@ -37,7 +37,7 @@ class ProductController extends Controller
         ]);
         $product = Product::create($request->except('tags'));
 
-        $tags = json_decode($request->post('tags'));
+        $tags = json_decode($request->post('tags'))??[];
         $tag_ids = [];
 
         foreach ($tags as $item) {
@@ -75,14 +75,14 @@ class ProductController extends Controller
         $product = Product::findorfail($id);
         $slug = Str::slug($request->post('name'));
         $old_path = $product->image;
-        $path = $this->uploadImg($request, 'products', 'img');
+        $path = $this->uploadImg($request, 'products', 'img')??null;
         $request->merge([
             // 'slug' => $slug,
-            'image' => $path,
+            'image' => $path ?? $old_path,
         ]);
         $product->update($request->except('tags'));
 
-        $tags = json_decode($request->post('tags'));
+        $tags = json_decode($request->post('tags')) ??[];
         $tag_ids = [];
 
         foreach ($tags as $item) {

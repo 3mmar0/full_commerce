@@ -29,6 +29,7 @@ class Product extends Model implements TranslatableContract
         'store_id',
         'featured',
         'quantity',
+        'type',
     ];
 
     protected static function booted()
@@ -41,10 +42,10 @@ class Product extends Model implements TranslatableContract
         //     }
         // });
 
-        static::creating(function (Product $product) {
-            $product->translate('en')->slug = Str::slug($product->translate('en')->name);
-            $product->translate('ar')->slug = Str::slug($product->translate('ar')->name);
-        });
+        // static::creating(function (Product $product) {
+        //     $product->translate('en')->slug = Str::slug($product->translate('en')->name);
+        //     $product->translate('ar')->slug = Str::slug($product->translate('ar')->name);
+        // });
         static::updating(function (Product $product) {
             $product->translate('en')->slug = Str::slug($product->translate('en')->name);
             $product->translate('ar')->slug = Str::slug($product->translate('ar')->name);
@@ -134,7 +135,7 @@ class Product extends Model implements TranslatableContract
             return 0;
         }
 
-        return round(($this->price / $this->compare_price * 100) - 100, 1);
+        return round(($this->compare_price / $this->price * 100) - 100, 1);
     }
 
     public static function rules($id = 0)

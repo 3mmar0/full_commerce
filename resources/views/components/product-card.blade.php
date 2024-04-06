@@ -25,18 +25,13 @@
             <h4 class="title">
                 <a style="display: block" href="{{ route('product', $product->slug ?? '') }}">{{ $product->name ?? '' }}</a>
             </h4>
-            <ul class="review">
-                <li><i class="lni lni-star-filled"></i></li>
-                <li><i class="lni lni-star-filled"></i></li>
-                <li><i class="lni lni-star-filled"></i></li>
-                <li><i class="lni lni-star-filled"></i></li>
-                <li><i class="lni lni-star-filled"></i></li>
-                <li><span>5.0 Review(s)</span></li>
-            </ul>
             <div class="price">
-                <span>{{ Currency::format($product->price) }}</span>
                 @if ($product->compare_price)
-                    <span class="discount-price">{{ Currency::format($product->compare_price) }}</span>
+
+                <span>{{ Currency::format($product->compare_price) }}</span>
+                <span class="discount-price">{{ Currency::format($product->price) }}</span>
+                @else
+                <span>{{ Currency::format($product->price) }}</span>
                 @endif
             </div>
         </div>

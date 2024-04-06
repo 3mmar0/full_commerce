@@ -50,6 +50,16 @@
             @endif
         </div>
         <div class="form-group">
+            <label for="">Type</label>
+            <div class="flex gap-4">
+                <x-form.radio name="type" checked="{{ $product->type }}" :options="[
+                    '30ml' => '30ml',
+                    '60ml' => '60ml',
+                    '100ml' => '100ml',
+                ]" />
+            </div>
+        </div>
+        <div class="form-group">
             <label for="">Status</label>
             <div class="flex gap-4">
                 <x-form.radio name="status" checked="{{ $product->status }}" :options="[
