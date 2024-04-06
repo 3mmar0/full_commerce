@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/link', function () {
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+    echo 'ok';
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
